@@ -72,6 +72,11 @@ class USVN_Authz
 			}
 		}
 
+		$cus = @file_get_contents($config->subversion->authz . '.manual');
+		if ($cus) {
+			$text .= $cus;
+		}
+
         @file_put_contents($config->subversion->authz, $text);
 	}
 
