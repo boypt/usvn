@@ -11,7 +11,7 @@
 				<div class="grid_img">
 					<?php echo $this->img('box48.png'); ?>
 				</div>
-				<div><?php
+				<div title="<?php echo htmlentities($project->name, ENT_QUOTES) ?>"><?php
 					if (strlen($project->name) > $this->maxlen) {
 						echo substr($project->name, 0, $this->maxlen), '<br />';
 						if (strlen($project->name) > ($this->maxlen * 2 - 3)) {
