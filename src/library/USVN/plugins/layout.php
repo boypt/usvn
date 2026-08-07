@@ -64,8 +64,8 @@ class USVN_plugins_layout extends Zend_Controller_Plugin_Abstract
 				if (strlen($elem['link']) != 0 || $path == '/' || strlen($path) == 0)
 					$selected = " class=\"selected\"";
 			if (isset($elem["image"]) && !empty($elem["image"]))
-				$img = "<img src=\"{$elem["image"]}\">";
-			$str .= "<li$selected$item><a href=\"$base_url/{$elem["link"]}\">$img{$elem["title"]}</a></li>\n";
+				$img = "<img src=\"{$elem['image']}\">";
+			$str .= "<li$selected$item><a href=\"$base_url/{$elem['link']}\">$img{$elem['title']}</a></li>\n";
 		}
 		return $str . "</ul>\n";
 	}
