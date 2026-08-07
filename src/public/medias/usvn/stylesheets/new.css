@@ -360,6 +360,13 @@ td.comment {
 	padding-left: 20px;
 }
 
+#usvn_index_projects li a div:last-child,
+#usvn_index_groups li a div:last-child {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 
 
 /* @end */
