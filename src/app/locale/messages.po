@@ -7,7 +7,7 @@
 msgid   ""
 msgstr  "Project-Id-Version: PACKAGE VERSION\n"
         "Report-Msgid-Bugs-To: \n"
-        "POT-Creation-Date: 2026-08-07 15:30+0800\n"
+        "POT-Creation-Date: 2026-08-07 15:41+0800\n"
         "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
         "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
         "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,7 +89,19 @@ msgid   "Do you really want to delete user %s?"
 msgstr  ""
 
 #: ../../app/views/scripts/useradmin/index.phtml:31
-msgid   "yes"
+#: ../../app/views/scripts/configadmin/index.phtml:70
+#: ../../app/views/scripts/configadmin/index.phtml:75
+#: ../../app/views/scripts/configadmin/index.phtml:177
+#: ../../app/views/scripts/configadmin/index.phtml:181
+#: ../../app/views/scripts/configadmin/index.phtml:194
+#: ../../app/views/scripts/configadmin/index.phtml:198
+#: ../../app/views/scripts/configadmin/index.phtml:253
+#: ../../app/views/scripts/configadmin/index.phtml:257
+#: ../../app/views/scripts/configadmin/index.phtml:316
+#: ../../app/views/scripts/configadmin/index.phtml:321
+#: ../../app/views/scripts/configadmin/index.phtml:335
+#: ../../app/views/scripts/configadmin/index.phtml:340
+msgid   "Yes"
 msgstr  ""
 
 #: ../../app/views/scripts/useradmin/index.phtml:48
@@ -187,21 +199,6 @@ msgstr  ""
 
 #: ../../app/views/scripts/configadmin/index.phtml:64
 msgid   "Check for update"
-msgstr  ""
-
-#: ../../app/views/scripts/configadmin/index.phtml:70
-#: ../../app/views/scripts/configadmin/index.phtml:75
-#: ../../app/views/scripts/configadmin/index.phtml:177
-#: ../../app/views/scripts/configadmin/index.phtml:181
-#: ../../app/views/scripts/configadmin/index.phtml:194
-#: ../../app/views/scripts/configadmin/index.phtml:198
-#: ../../app/views/scripts/configadmin/index.phtml:253
-#: ../../app/views/scripts/configadmin/index.phtml:257
-#: ../../app/views/scripts/configadmin/index.phtml:316
-#: ../../app/views/scripts/configadmin/index.phtml:321
-#: ../../app/views/scripts/configadmin/index.phtml:335
-#: ../../app/views/scripts/configadmin/index.phtml:340
-msgid   "Yes"
 msgstr  ""
 
 #: ../../app/views/scripts/configadmin/index.phtml:71

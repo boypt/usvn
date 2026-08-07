@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: USVN 0.6.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-07 15:30+0800\n"
+"POT-Creation-Date: 2026-08-07 15:41+0800\n"
 "PO-Revision-Date: 2009-09-11 22:46+0100\n"
 "Last-Translator: \n"
 "Language-Team: Chinese/Simplified <contact@usvn.info>\n"
@@ -90,7 +90,19 @@ msgid "Do you really want to delete user %s?"
 msgstr "确定要删除用户 %s ?"
 
 #: ../../app/views/scripts/useradmin/index.phtml:31
-msgid "yes"
+#: ../../app/views/scripts/configadmin/index.phtml:70
+#: ../../app/views/scripts/configadmin/index.phtml:75
+#: ../../app/views/scripts/configadmin/index.phtml:177
+#: ../../app/views/scripts/configadmin/index.phtml:181
+#: ../../app/views/scripts/configadmin/index.phtml:194
+#: ../../app/views/scripts/configadmin/index.phtml:198
+#: ../../app/views/scripts/configadmin/index.phtml:253
+#: ../../app/views/scripts/configadmin/index.phtml:257
+#: ../../app/views/scripts/configadmin/index.phtml:316
+#: ../../app/views/scripts/configadmin/index.phtml:321
+#: ../../app/views/scripts/configadmin/index.phtml:335
+#: ../../app/views/scripts/configadmin/index.phtml:340
+msgid "Yes"
 msgstr "是"
 
 #: ../../app/views/scripts/useradmin/index.phtml:48
@@ -192,21 +204,6 @@ msgstr "默认模板"
 msgid "Check for update"
 msgstr "检查更新"
 
-#: ../../app/views/scripts/configadmin/index.phtml:70
-#: ../../app/views/scripts/configadmin/index.phtml:75
-#: ../../app/views/scripts/configadmin/index.phtml:177
-#: ../../app/views/scripts/configadmin/index.phtml:181
-#: ../../app/views/scripts/configadmin/index.phtml:194
-#: ../../app/views/scripts/configadmin/index.phtml:198
-#: ../../app/views/scripts/configadmin/index.phtml:253
-#: ../../app/views/scripts/configadmin/index.phtml:257
-#: ../../app/views/scripts/configadmin/index.phtml:316
-#: ../../app/views/scripts/configadmin/index.phtml:321
-#: ../../app/views/scripts/configadmin/index.phtml:335
-#: ../../app/views/scripts/configadmin/index.phtml:340
-msgid "Yes"
-msgstr "是"
-
 #: ../../app/views/scripts/configadmin/index.phtml:71
 #: ../../app/views/scripts/configadmin/index.phtml:76
 #: ../../app/views/scripts/configadmin/index.phtml:178
@@ -269,7 +266,9 @@ msgid ""
 "These settings are based on Zend LDAP settings. You can find their meaning "
 "on <a target=\"_blank\" href=\"http://framework.zend.com/manual/en/"
 "zend.ldap.html\">Zend's website</a>"
-msgstr "这些设置基于 Zend LDAP 设置,详细含义请参见 <a target=\"_blank\" href=\"http://framework.zend.com/manual/en/zend.ldap.html\">Zend 官网</a>"
+msgstr ""
+"这些设置基于 Zend LDAP 设置,详细含义请参见 <a target=\"_blank\" "
+"href=\"http://framework.zend.com/manual/en/zend.ldap.html\">Zend 官网</a>"
 
 #: ../../app/views/scripts/configadmin/index.phtml:172
 msgid "Create DB user from LDAP on login"
@@ -896,9 +895,7 @@ msgstr "递归的(所有子目录和文件)"
 
 #: ../../app/install/install.class.php:26
 msgid "Can't copy the old configuration.\n"
-msgstr ""
-"无法复制旧配置.\n"
-""
+msgstr "无法复制旧配置.\n"
 
 #: ../../app/install/install.class.php:79
 msgid "Can't create database\n"
@@ -1110,7 +1107,6 @@ msgstr ""
 "%s\n"
 "\n"
 "错误: %s\n"
-""
 
 #: ../../library/USVN/Db/Table/Groups.php:75
 msgid "The group's name is empty."
@@ -1224,6 +1220,9 @@ msgstr "为项目 %s 自动创建的用户组."
 #, php-format
 msgid "Project %s doesn't exist."
 msgstr "项目 %s 不存在."
+
+#~ msgid "yes"
+#~ msgstr "是"
 
 #~ msgid ""
 #~ "Login invalid.  The login can only include alpha-numeric characters and "

@@ -28,7 +28,7 @@
 		<td><a href="<?php echo h_($editurl); ?>"><?php echo h_($user->firstname); ?></a></td>
 		<td><a href="<?php echo h_($editurl); ?>"><?php echo h_($user->lastname); ?></a></td>
 		<td><a href="mailto:<?php echo h_($user->email); ?>"><?php echo h_($user->email); ?></a></td>
-		<td><a href="<?php echo h_($editurl); ?>"><?php echo T_($user->is_admin ? "yes" : "no"); ?></a></td>
+		<td><a href="<?php echo h_($editurl); ?>"><?php echo T_($user->is_admin ? "Yes" : "No"); ?></a></td>
 		<td class="align-right">
 			<?php echo $this->editLink('login', $user->login); ?>
 			<?php if ($user->login != $me): ?>
