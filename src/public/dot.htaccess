@@ -6,8 +6,12 @@
   Require all denied
 </Files>
 
-php_flag short_open_tag on
-php_flag magic_quotes_gpc off
+<IfModule mod_php7.c>
+    php_flag short_open_tag on
+</IfModule>
+<IfModule mod_php.c>
+    php_flag short_open_tag on
+</IfModule>
 
 RewriteEngine on
 #RewriteCond
