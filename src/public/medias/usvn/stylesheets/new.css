@@ -527,7 +527,6 @@ ul.grid_list li a:hover {
 #sorttable_sortrevind img {
 	margin-left: 5px;
 }
-/* @end */
 
 #affected select {
 	width: 100%;
@@ -539,3 +538,4 @@ ul.grid_list li a:hover {
 	font-weight: bold;
 	margin-bottom: 5px;
 }
+/* @end */
