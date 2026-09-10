@@ -304,8 +304,10 @@ class Zend_Locale_Format
         // Get correct signs for this locale
         $symbols = Zend_Locale_Data::getList($options['locale'], 'symbols');
 		if (PHP_VERSION_ID < 50600)
+		{
 			$oenc = iconv_get_encoding('internal_encoding');
 			iconv_set_encoding('internal_encoding', 'UTF-8');
+		}
 		else
 		{
 			$oenc = iconv_get_encoding('internal_encoding');
