@@ -120,7 +120,8 @@ class USVN_Db_Table_Projects extends USVN_Db_TableAuthz {
 	public function AddUserToProject($user, $project)
 	{
 		$table = new USVN_Db_Table_UsersToProjects();
-		$check = count($table->fetchRow(array('users_id = ?' => $user->users_id, 'projects_id = ?' => $project->projects_id)));
+		$row = $table->fetchRow(array('users_id = ?' => $user->users_id, 'projects_id = ?' => $project->projects_id));
+		$check = $row ? 1 : 0;
 		if ($check == 0) {
 			$row = $table->createRow(array('users_id' => $user->users_id, 'projects_id' => $project->projects_id));
 			$row->save();
@@ -136,7 +137,8 @@ class USVN_Db_Table_Projects extends USVN_Db_TableAuthz {
 	public function DeleteUserToProject($user, $project)
 	{
 		$table = new USVN_Db_Table_UsersToProjects();
-		$check = count($table->fetchRow(array('users_id = ?' => $user->users_id, 'projects_id = ?' => $project->projects_id)));
+		$row = $table->fetchRow(array('users_id = ?' => $user->users_id, 'projects_id = ?' => $project->projects_id));
+		$check = $row ? 1 : 0;
 		if ($check == 1) {
 			$table->delete(array('users_id = ?' => $user->users_id, 'projects_id = ?' => $project->projects_id));
 		}

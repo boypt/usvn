@@ -30,7 +30,7 @@ class USVN_Config
 	{
 		if (in_array($language, USVN_Translation::listTranslation())) {
 			$config = new USVN_Config_Ini(USVN_CONFIG_FILE, USVN_CONFIG_SECTION);
-			$config->translation->locale = filter_var($language, FILTER_SANITIZE_STRING);
+			$config->translation->locale = filter_var($language, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 			$config->save();
 		} 
 		else {
@@ -67,7 +67,7 @@ class USVN_Config
 	{
 		if (in_array($template, USVN_Template::listTemplate())) {
 			$config = new USVN_Config_Ini(USVN_CONFIG_FILE, USVN_CONFIG_SECTION);
-			$config->template->name = filter_var($template, FILTER_SANITIZE_STRING);
+			$config->template->name = filter_var($template, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 			$config->save();
 		}
 		else {
@@ -83,7 +83,7 @@ class USVN_Config
 	static public function setCheckForUpdate($check)
 	{
 		$config = new USVN_Config_Ini(USVN_CONFIG_FILE, USVN_CONFIG_SECTION);
-		$config->update = array("checkforupdate" => filter_var($check, FILTER_SANITIZE_STRING), "lastcheckforupdate" => 0);
+		$config->update = array("checkforupdate" => filter_var($check, FILTER_SANITIZE_FULL_SPECIAL_CHARS), "lastcheckforupdate" => 0);
 		$config->save();
 	}
 
@@ -96,7 +96,7 @@ class USVN_Config
 	static public function setSiteDatas($datas)
 	{
 		$config = new USVN_Config_Ini(USVN_CONFIG_FILE, USVN_CONFIG_SECTION);
-		$config->site->title = filter_var($datas['title'], FILTER_SANITIZE_STRING);
+		$config->site->title = filter_var($datas['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 		$config->site->ico = filter_var($datas['ico'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 		$config->site->logo = filter_var($datas['logo'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 		$config->save();
@@ -142,14 +142,14 @@ class USVN_Config
 	static public function setAuthAdapter($adapterMethod)
 	{
 		$config = new USVN_Config_Ini(USVN_CONFIG_FILE, USVN_CONFIG_SECTION);
-		$config->authAdapterMethod = filter_var($adapterMethod, FILTER_SANITIZE_STRING);
+		$config->authAdapterMethod = filter_var($adapterMethod, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 		$config->save();
 	}
 
 	static public function setDefaultUser($defaultUser)
 	{
 		$config = new USVN_Config_Ini(USVN_CONFIG_FILE, USVN_CONFIG_SECTION);
-		$config->alwaysUseDatabaseForLogin = filter_var($defaultUser, FILTER_SANITIZE_STRING);
+		$config->alwaysUseDatabaseForLogin = filter_var($defaultUser, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 		$config->save();
 	}
 }
