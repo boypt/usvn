@@ -21,6 +21,8 @@
 class CssController extends Zend_Controller_Action
 {
 	protected $_mimetype = 'text/css';
+	protected $css_directory;
+	protected $images_directory;
 
 	public function preDispatch()
 	{

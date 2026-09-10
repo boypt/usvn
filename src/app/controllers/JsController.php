@@ -21,6 +21,9 @@
 class JsController extends Zend_Controller_Action
 {
 	protected $_mimetype = 'text/javascript';
+	protected $images_directory;
+	protected $js_default_directory;
+	protected $js_directory;
 
 	public function preDispatch()
 	{

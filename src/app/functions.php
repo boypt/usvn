@@ -15,5 +15,5 @@ function T_($str)
 
 function h_($string)
 {
-	return htmlspecialchars($string);
+	return htmlspecialchars((string)$string);
 }
