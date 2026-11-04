@@ -281,6 +281,10 @@ class ProjectController extends USVN_Controller
 		}
 		else
 		{
+			$decoded = USVN_TextEncoding::decode($source, $this->getRequest()->getParam('encoding'));
+			$source = $decoded['text'];
+			$this->view->encoding = $decoded['encoding'];
+			$this->view->encodings = USVN_TextEncoding::getEncodings();
 			$this->view->color_view = $this->getRequest()->getParam('color');
 			$this->view->diff_view = $this->getRequest()->getParam('diff');
 			$this->view->diff_revision = $this->getRequest()->getParam('drev');
@@ -296,6 +300,7 @@ class ProjectController extends USVN_Controller
     		$lang_name = $geshi->get_language_name_from_extension($file_ext);
 		    $this->view->language = $lang_name;
 		    $geshi->set_language(($this->view->color_view ? $lang_name : NULL), true);
+		    $geshi->set_encoding('utf-8');
 		    $geshi->enable_line_numbers(GESHI_NORMAL_LINE_NUMBERS);
 			if ($this->view->diff_view && ($this->view->diff_revision || $this->view->prev_revision))
 			{
@@ -308,6 +313,7 @@ class ProjectController extends USVN_Controller
 				}
 				else
 				{
+					$diff = USVN_TextEncoding::decode($diff, $this->view->encoding)['text'];
 					$new_source = array();
 					$source = explode("\n", $source);
 					array_pop($source); // Skip the final "\n"
@@ -402,6 +408,19 @@ class ProjectController extends USVN_Controller
 			$diff = USVN_ConsoleUtils::runCmdCaptureMessageUnsafe($cmd, $return);
 			if (!$return) {
 				$diff = explode("\n", $diff);
+				$decoded_diff = array();
+				$file_lines = array();
+				foreach ($diff as $line) {
+					if (strpos($line, 'Index: ') === 0 && $file_lines) {
+						$decoded_diff = array_merge($decoded_diff, explode("\n", USVN_TextEncoding::decode(implode("\n", $file_lines))['text']));
+						$file_lines = array();
+					}
+					$file_lines[] = $line;
+				}
+				if ($file_lines) {
+					$decoded_diff = array_merge($decoded_diff, explode("\n", USVN_TextEncoding::decode(implode("\n", $file_lines))['text']));
+				}
+				$diff = $decoded_diff;
 				array_pop($diff); // Skip the final "\n"
 				$file = NULL;
 				$count = 0;
@@ -429,7 +448,7 @@ class ProjectController extends USVN_Controller
 						if ($diff_char == '\\') {
 							continue;
 						}
-						$line = htmlentities(substr($line, 1));
+						$line = htmlentities(substr($line, 1), ENT_COMPAT, 'UTF-8');
 						if ($diff_char == '-') {
 							$tab_diff[$file][$tab_index][$base]['content'][$count++] = $line;
 						} elseif ($diff_char == '+') {

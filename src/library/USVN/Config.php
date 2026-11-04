@@ -152,4 +152,37 @@ class USVN_Config
 		$config->alwaysUseDatabaseForLogin = filter_var($defaultUser, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 		$config->save();
 	}
+
+	/**
+	 * Set the ordered list of encodings used to read repository text.
+	 *
+	 * @param string $encodings Comma-separated encoding names
+	 */
+	static public function setSubversionTextEncodings($encodings)
+	{
+		$encodings = preg_split('/[,\r\n]+/', (string)$encodings);
+		$valid = array();
+		foreach ($encodings as $encoding) {
+			$encoding = trim($encoding);
+			if ($encoding === '') {
+				continue;
+			}
+			if (function_exists('iconv') && @iconv($encoding, 'UTF-8', 'USVN') === false) {
+				continue;
+			}
+			if (!in_array(strtolower($encoding), array_map('strtolower', $valid), true)) {
+				$valid[] = $encoding;
+			}
+		}
+		if (!$valid) {
+			$valid = array('UTF-8');
+		}
+		if (!in_array('utf-8', array_map('strtolower', $valid), true)) {
+			array_unshift($valid, 'UTF-8');
+		}
+
+		$config = new USVN_Config_Ini(USVN_CONFIG_FILE, USVN_CONFIG_SECTION);
+		$config->subversion->text_encodings = implode(',', $valid);
+		$config->save();
+	}
 }

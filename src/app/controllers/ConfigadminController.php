@@ -48,6 +48,7 @@ class ConfigadminController extends AdminadminController
 							'logo'			=> $_POST['siteLogo']);
 		USVN_Config::setSiteDatas($siteDatas);
 		USVN_Config::setDefaultUser($_POST['alwaysUseDatabaseForLogin']);
+		USVN_Config::setSubversionTextEncodings(isset($_POST['textEncodings']) ? $_POST['textEncodings'] : 'UTF-8');
 		USVN_Config::setAuthAdapter($_POST['authAdapterMethod']);
 		$ldapEncryptMethod = $_POST['LDAPEncryptionMethod'];
 		$_POST['ldap']['useStartTls'] = ($ldapEncryptMethod == 'tls' ? '1' : '0');

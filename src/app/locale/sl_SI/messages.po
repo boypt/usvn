@@ -1241,3 +1241,11 @@ msgstr ""
 "Narejena je bila kopija SVN odloćišča, kakršnakoli sprememba na staremu se "
 "ne bo odražala na novemu. Priporočamo, da onemogočite dostop do starega "
 "odložišča."
+
+#: ../../app/views/scripts/configadmin/index.phtml:86
+msgid "Text encodings (comma-separated)"
+msgstr "Text encodings (comma-separated)"
+
+#: ../../app/views/scripts/project/show.phtml:42
+msgid "Encoding:"
+msgstr "Encoding:"

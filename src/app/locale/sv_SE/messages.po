@@ -562,3 +562,10 @@ msgstr "Tidslinje"
 msgid "System report"
 msgstr "Systemrapport"
 
+#: ../../app/views/scripts/configadmin/index.phtml:86
+msgid "Text encodings (comma-separated)"
+msgstr "Text encodings (comma-separated)"
+
+#: ../../app/views/scripts/project/show.phtml:42
+msgid "Encoding:"
+msgstr "Encoding:"

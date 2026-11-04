@@ -1180,3 +1180,11 @@ msgstr "Principal"
 
 msgid "A copy of the old SVN repository has been made, any modification done on the old one won't interact on the new one. You should disable the old repository access."
 msgstr ""
+
+#: ../../app/views/scripts/configadmin/index.phtml:86
+msgid "Text encodings (comma-separated)"
+msgstr "Text encodings (comma-separated)"
+
+#: ../../app/views/scripts/project/show.phtml:42
+msgid "Encoding:"
+msgstr "Encoding:"

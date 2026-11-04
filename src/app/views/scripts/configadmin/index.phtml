@@ -79,6 +79,12 @@
 				</select>
 			</td>
 		</tr>
+		<tr>
+			<td><label for="textEncodings"><?php echo T_("Text encodings (comma-separated)"); ?>:</label></td>
+			<td>
+				<?php echo $this->formText('textEncodings', implode(',', USVN_TextEncoding::getEncodings()), array('size' => 54)); ?>
+			</td>
+		</tr>
 	</table>
 </div>
 

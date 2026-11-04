@@ -1162,3 +1162,11 @@ msgstr  ""
 #, php-format
 msgid   "Project %s doesn't exist."
 msgstr  ""
+
+#: ../../app/views/scripts/configadmin/index.phtml:86
+msgid "Text encodings (comma-separated)"
+msgstr ""
+
+#: ../../app/views/scripts/project/show.phtml:42
+msgid "Encoding:"
+msgstr ""

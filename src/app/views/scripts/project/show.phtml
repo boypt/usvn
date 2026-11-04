@@ -38,6 +38,11 @@
       <td align="left">
         <label><input onChange="document.revisions.submit();" type="checkbox" name="color" style="vertical-align: middle;" <?php echo ($this->color_view ? 'checked' : ''); ?> /> <?php echo T_('Color view'); ?></label><br />
         <label><input onChange="document.revisions.submit();" type="checkbox" name="diff" style="vertical-align: middle;" <?php echo ($this->diff_view ? 'checked' : ''); ?> /> <?php echo T_('Diff view'); ?></label>
+        <br />
+        <label for="encoding"><?php echo T_('Encoding:'); ?></label>
+        <select name="encoding" id="encoding" onChange="document.revisions.submit();">
+          <?php foreach ($this->encodings as $encoding) { echo '<option value="'.htmlspecialchars($encoding).'"'.($encoding == $this->encoding ? ' selected' : '').'>'.htmlspecialchars($encoding).'</option>'; } ?>
+        </select>
         <input type="hidden" name="drev" value="<?php echo $this->diff_revision ?>" id="drev" />
         <select onChange="document.getElementById('drev').value=this.value;document.revisions.submit();" <?php echo ($this->diff_view ? '' : 'disabled'); ?>>
           <?php foreach ($this->select_revisions as $rev) {

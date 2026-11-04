@@ -1436,3 +1436,11 @@ msgstr "项目 %s 不存在."
 
 #~ msgid "To modify the rights on"
 #~ msgstr "修改权限 :"
+
+#: ../../app/views/scripts/configadmin/index.phtml:86
+msgid "Text encodings (comma-separated)"
+msgstr "文本编码（逗号分隔）"
+
+#: ../../app/views/scripts/project/show.phtml:42
+msgid "Encoding:"
+msgstr "编码："

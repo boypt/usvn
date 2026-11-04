@@ -22,6 +22,8 @@ subversion.url = "http://localhost/svn/"
 subversion.chmod = "0770"
 ;; svn repo/db/* directories mod (used on fcgi env)
 subversion.chmod_db = "2770"
+;; Ordered encodings used to detect and display repository text as UTF-8
+subversion.text_encodings = "UTF-8,GBK,GB2312,Big5"
 
 ;; Database adapter name
 database.adapterName = "MYSQLI"
