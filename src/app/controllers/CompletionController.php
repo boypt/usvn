@@ -27,6 +27,16 @@ class CompletionController extends USVN_Controller
 		$this->_helper->layout()->disableLayout();
 	}
 
+	protected function userLabel($user, $nb)
+	{
+		$label = $user->users_login;
+		$fullname = trim(trim($user->users_lastname) . ',' . trim($user->users_firstname), ',');
+		if (strlen($fullname)) {
+			$label .= ' <small style="color:#666;">' . htmlspecialchars($fullname, ENT_QUOTES, 'UTF-8') . '</small>';
+		}
+		return "<label id='luser" . $nb . "'>" . $label . "</label>";
+	}
+
 	public function completionAction()
 	{
 		echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
@@ -62,7 +72,7 @@ class CompletionController extends USVN_Controller
 				{
 					$table .= "<tr id='user".$nb."' class='comp'>";
 					$table .= "<td align=left onclick='javascript:dumpInput("."\"".$user->users_login."\"".","."\"".$_GET['input']."\"".", \"completion\")'>";
-					$table .= "<label id='luser".$nb."'>".$user->users_login."</label>";
+					$table .= $this->userLabel($user, $nb);
 					$table .= "</td></tr>";
 					$nb++;
 				}
@@ -113,7 +123,7 @@ class CompletionController extends USVN_Controller
 				{
 					$table .= "<tr id='user".$nb."' class='comp'>";
 					$table .= "<td align=left onclick='javascript:dumpInput("."\"".$user->users_login."\"".","."\"".$_GET['input']."\"".", \"completionleader\")'>";
-					$table .= "<label id='luser".$nb."'>".$user->users_login."</label>";
+					$table .= $this->userLabel($user, $nb);
 					$table .= "</td></tr>";
 					$nb++;
 				}
@@ -137,7 +147,7 @@ class CompletionController extends USVN_Controller
 				{
 					$table .= "<tr id='user".$nb."' class='comp'>";
 					$table .= "<td align=left onclick='javascript:dumpInput("."\"".$user->users_login."\"".","."\"".$_GET['input']."\"".", \"completion\")'>";
-					$table .= "<label id='luser".$nb."'>".$user->users_login."</label>";
+					$table .= $this->userLabel($user, $nb);
 					$table .= "</td></tr>";
 					$nb++;
 				}

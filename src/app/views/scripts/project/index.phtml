@@ -39,7 +39,7 @@
 					sprintf(T_("Do you really want to remove user %s as admin of project %s?"), $user->login, $this->project->name));
 					?>
 				<?php endif; ?>
-				<?php echo $user->login; ?>
+				<?php echo $user->login; ?><?php $fullname = trim(trim($user->lastname) . ',' . trim($user->firstname), ','); if (strlen($fullname)) : ?> <small style="color: #666;"><?php echo h_($fullname); ?></small><?php endif; ?>
 			</li>
 		<?php endforeach; ?>
 	</ul>
