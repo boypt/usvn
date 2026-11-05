@@ -91,13 +91,36 @@ function updateOrInsertRights(file)
 	xhr.send(null);
 }
 
-function getListFile(file)
+function getListFile(file, pushHistory)
 {
+	if (pushHistory === undefined) {
+		pushHistory = true;
+	}
+	var originalFile = file;
 	file = encodeURIComponent(file);
 	var xhr = get_ajax(3);
 	xhr.open("GET", getUrlForAction("get-list-file")+"name="+file, true);
 	xhr.send(null);
+	if (pushHistory && window.history && window.history.pushState) {
+		var historyPath = originalFile;
+		try {
+			historyPath = decodeURIComponent(historyPath);
+		} catch (e) {
+		}
+		var url = window.location.pathname;
+		if (historyPath != "/" && historyPath != "nop") {
+			url += "?back=" + encodeURIComponent(historyPath);
+		}
+		window.history.pushState({ path: originalFile }, "", url);
+	}
 }
+
+window.onpopstate = function(event)
+{
+	if (event.state && event.state.path) {
+		getListFile(event.state.path, false);
+	}
+};
 
 function fctWrite(group)
 {
@@ -161,6 +184,19 @@ function alert_ajax(xhr, index)
 <script type="text/javascript">
 <!--
 register_position();
-getListFile('<?php echo $this->back ?>');
+var initialPath = '<?php echo addslashes($this->back) ?>';
+if (window.history && window.history.replaceState) {
+	var initialDecoded = initialPath;
+	try {
+		initialDecoded = decodeURIComponent(initialDecoded);
+	} catch (e) {
+	}
+	var initialUrl = window.location.pathname;
+	if (initialDecoded != "/" && initialDecoded != "nop") {
+		initialUrl += "?back=" + encodeURIComponent(initialDecoded);
+	}
+	window.history.replaceState({ path: initialPath }, "", initialUrl);
+}
+getListFile(initialPath, false);
 -->
 </script>
