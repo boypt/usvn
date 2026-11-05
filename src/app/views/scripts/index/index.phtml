@@ -30,7 +30,7 @@
 				<div class="grid_img">
 					<?php echo $this->img('group48.png'); ?>
 				</div>
-				<div><?php echo $group->name; ?></div>
+				<div><?php echo $group->name; ?><?php if (strlen(trim($group->description))) : ?> <small style="color: #666;"><?php echo h_($group->description); ?></small><?php endif; ?></div>
 			</a>
 		</li>
 	<?php endforeach; ?>

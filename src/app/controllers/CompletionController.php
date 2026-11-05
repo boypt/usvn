@@ -37,6 +37,16 @@ class CompletionController extends USVN_Controller
 		return "<label id='luser" . $nb . "'>" . $label . "</label>";
 	}
 
+	protected function groupLabel($group, $nb)
+	{
+		$label = $group->groups_name;
+		$description = trim($group->groups_description);
+		if (strlen($description)) {
+			$label .= ' <small style="color:#666;">' . htmlspecialchars($description, ENT_QUOTES, 'UTF-8') . '</small>';
+		}
+		return "<label id='lgrp" . $nb . "'>" . $label . "</label>";
+	}
+
 	public function completionAction()
 	{
 		echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
@@ -97,7 +107,7 @@ class CompletionController extends USVN_Controller
 				{
 					$table .= "<tr id='grp".$nb."' class='comp'>";
 					$table .= "<td align=left onclick='javascript:dumpInput("."\"".$group->groups_name."\"".","."\"".$_GET['input']."\"".", \"completion1\")'>";
-					$table .= "<label id='lgrp".$nb."'>".$group->groups_name."</label>";
+					$table .= $this->groupLabel($group, $nb);
 					$table .= "</td></tr>";
 					$nb++;
 				}
