@@ -35,12 +35,24 @@ class USVN_Authz
 		$array = array();
 		$groups = new USVN_Db_Table_Groups();
 		foreach ($groups->fetchAllAndUsers() as $group) {
+			// Skip groups without members (LEFT JOIN yields NULL users_login).
+			// Writing `group = ` makes mod_authz_svn log a warning on every request.
+			if (empty($group->users_login)) {
+				continue;
+			}
 			$array[$group->name][] = $group->users_login;
 		}
 		foreach ($array as $group => $users) {
 			$users = implode(", ", $users);
+			if (!strlen($users)) {
+				continue;
+			}
 			$text .= "{$group} = {$users}\n";
 		}
+		// Groups with members only: referencing an undefined group from a
+		// path section makes newer mod_authz_svn fail with E220003, so path
+		// rules below must skip groups not defined here.
+		$validGroups = array_flip(array_keys($array));
 
 
 		$array = array();
@@ -66,6 +78,9 @@ class USVN_Authz
 			foreach ($files_paths as $files_path => $files_rights) {
 				$text .= "[{$project}:{$files_path}]\n";
 				foreach ($files_rights as $group => $rights) {
+					if (!isset($validGroups[$group])) {
+						continue;
+					}
 					$text .= "@{$group} = {$rights}\n";
 				}
 				$text .= "\n";
