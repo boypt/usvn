@@ -58,13 +58,13 @@ msgstr "登录名"
 #: ../../app/views/scripts/useradmin/form.phtml:16
 #: ../../app/views/scripts/profile/index.phtml:48
 msgid "Firstname"
-msgstr "姓"
+msgstr "名"
 
 #: ../../app/views/scripts/useradmin/index.phtml:10
 #: ../../app/views/scripts/useradmin/form.phtml:13
 #: ../../app/views/scripts/profile/index.phtml:45
 msgid "Lastname"
-msgstr "名"
+msgstr "姓"
 
 #: ../../app/views/scripts/useradmin/index.phtml:11
 #: ../../app/views/scripts/useradmin/form.phtml:20

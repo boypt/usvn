@@ -10,12 +10,12 @@
 	<?php echo $this->formPassword('users_password2',  null); ?>
 </label>
 <br />
-<label><?php echo T_("Lastname"); ?>:<br />
-	<?php echo $this->formText('users_lastname', $this->user->lastname, array('maxlength' => 100)); ?></label>
-<br />
 <label><?php echo T_("Firstname"); ?>:<br />
 	<?php echo $this->formText('users_firstname', $this->user->firstname , array('maxlength' => 100)); ?>
 </label>
+<br />
+<label><?php echo T_("Lastname"); ?>:<br />
+	<?php echo $this->formText('users_lastname', $this->user->lastname, array('maxlength' => 100)); ?></label>
 <br />
 <label><?php echo T_("Email"); ?>:<br />
 	<?php echo $this->formText('users_email', $this->user->email, array('maxlength' => 150)); ?>
