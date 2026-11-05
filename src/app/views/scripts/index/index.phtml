@@ -12,6 +12,7 @@
 					<?php echo $this->img('box48.png'); ?>
 				</div>
 				<div title="<?php echo htmlentities($project->name, ENT_QUOTES) ?>"><?php echo $project->name; ?></div>
+				<?php if (strlen(trim($project->description))) : ?><div><small style="color: #666;"><?php echo h_($project->description); ?></small></div><?php endif; ?>
 			</a>
 		</li>
 	<?php endforeach; ?>
