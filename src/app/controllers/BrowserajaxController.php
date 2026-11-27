@@ -127,7 +127,7 @@ class BrowserajaxController extends USVN_Controller
           echo "<a href=\"". $this->view->url(array('project' => $project->name, 'file' => substr($tabl['path_raw'], 1)), 'show', false, false) . "\">{$tabl['isDirectory']} {$tabl['name']}</a> <span style=\"font-size: 8px; text-align: right;\">({$tabl['size']})</span></td>";
 				}
 				if (isset($tabl['revision'])) {
-					echo "<td><a href=\"".$this->view->url(array('project' => $project->name, 'action' => 'commit', 'commit' => $tabl['revision']), 'commit')."\">{$tabl['revision']}</a> by {$tabl['author']}</td>";
+					echo "<td><a href=\"".$this->view->url(array('project' => $project->name, 'action' => 'commit', 'commit' => $tabl['revision']), 'commit')."\">{$tabl['revision']}</a> by ".$this->view->svnUser($tabl['author'])."</td>";
 				} else {
 					echo "<td></td>";
 				}

@@ -98,7 +98,7 @@
 			<?php $commit = $this->log[$revision]; ?>
 			<tr onClick="window.location='<?php echo $this->url(array('project' => $this->project->name, 'action' => 'commit', 'commit' => $revision), 'commit'); ?>'">
 				<td class="revision"><?php echo $revision ?></td>
-				<td class="logname"><?php echo $commit['author'] ?></td>
+				<td class="logname"><?php echo $this->svnUser($commit['author']); ?></td>
 				<td class="date"><?php echo date("Y-m-d H:i",  $commit["date"]); ?></td>
 				<td class="comment"><?php echo USVN_SVNLog::formatComment($commit['msg']); ?></td>
 			</tr>
