@@ -5,7 +5,7 @@
   <table style="width: 100%;">
     <tr>
       <td><?php echo T_('Author'); ?>:</td>
-      <td><?php echo $this->svnUser($this->author) ?></td>
+      <td><?php echo $this->svnUser($this->author); ?><?php if (strlen(trim($this->authorFullname))) : ?> <small style="color: #666;">(<?php echo h_($this->authorFullname); ?>)</small><?php endif; ?></td>
     </tr>
     <tr>
       <td><?php echo T_('Date'); ?>:</td>

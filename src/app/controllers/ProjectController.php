@@ -466,6 +466,17 @@ class ProjectController extends USVN_Controller
 				if (preg_match('#^r[0-9]* \| (.*) \| ([0-9-]+ [0-9:]+) [^\|]* \| ([0-9]*)[^\|]*$#', $log[1], $tmp)) {
 					$this->view->author = $tmp[1];
 					$this->view->date = $tmp[2];
+					$authorFullname = '';
+					try {
+						$authorUserTable = new USVN_Db_Table_Users();
+						$authorUser = $authorUserTable->fetchRow(array('users_login = ?' => $tmp[1]));
+						if ($authorUser !== null) {
+							$authorFullname = trim(trim($authorUser->lastname) . ' ' . trim($authorUser->firstname));
+						}
+					} catch (Exception $e) {
+						$authorFullname = '';
+					}
+					$this->view->authorFullname = $authorFullname;
 					$this->view->log = NULL;
 					for ($i = 0; $i < $tmp[3]; ++$i) {
 						$this->view->log .= ($this->view->log != NULL ? "\n" : '').$log[3 + $i];
