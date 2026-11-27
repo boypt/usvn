@@ -633,6 +633,10 @@ msgstr "下一个"
 msgid "View the full commit."
 msgstr "查看完整提交。"
 
+#: ../../app/views/scripts/project/commit.phtml:29
+msgid "This commit touches %d files; full diff is omitted."
+msgstr "此提交涉及 %d 个文件，已省略完整差异。"
+
 #: ../../app/views/scripts/project/show.phtml:39
 msgid "Color view"
 msgstr "彩色视图"

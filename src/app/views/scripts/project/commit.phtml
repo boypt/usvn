@@ -26,6 +26,9 @@
   </table>
 </div>
 <div style="font-family:monospace;">
+  <?php if (!empty($this->diffOmitted)) : ?>
+    <p><?php echo sprintf(T_("This commit touches %d files; full diff is omitted."), $this->diffFileCount); ?></p>
+  <?php else : ?>
   <?php foreach ($this->diff as $file => $diff): ?>
     <table border="0" cellspacing="1px" cellpadding="0" width="100%" style="padding: 2px;">
       <tr height="30px">
@@ -75,4 +78,5 @@
     </table>
     <br />
   <?php endforeach; ?>
+  <?php endif; ?>
 </div>

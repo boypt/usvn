@@ -459,6 +459,11 @@ class ProjectController extends USVN_Controller
 					}
 				}
 				$this->view->diff = $tab_diff;
+				$this->view->diffFileCount = count($tab_diff);
+				$this->view->diffOmitted = (count($tab_diff) > 10);
+				if ($this->view->diffOmitted) {
+					$this->view->diff = array();
+				}
 				$this->view->commit = $commit;
 				$this->view->base = $base;
 				unset($tab_diff);
