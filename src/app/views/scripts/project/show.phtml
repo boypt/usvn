@@ -66,11 +66,15 @@
 <?php
   $finfo = new finfo(FILEINFO_MIME);
   $mime = $finfo->buffer($this->source);
-  $mime = substr($mime, 0, strpos($mime, "/"));
-  if ($mime == "image") {
+  $mime_type = ($mime === false) ? '' : trim(explode(';', $mime)[0]);
+  $primary = $mime_type === '' ? '' : strtok($mime_type, '/');
+  $text_exts = array('txt','md','markdown','rst','log','ini','conf','cfg','xml','json','yaml','yml','php','phtml','js','css','html','htm','sql','sh','py','rb','java','c','cpp','h','hpp','go','rs');
+  $ext = strtolower(pathinfo($this->path, PATHINFO_EXTENSION));
+  $is_text = ($primary === 'text' || $mime_type === '' || $this->source === '' || $this->source === null || in_array($ext, $text_exts));
+  if ($primary === "image") {
     $file = USVN_SVNUtils::getSubversionUrl($this->project->name, "/".$this->path)."?p=$this->revision";
     echo "<img src=$file width=100% height=auto/>";
-  } elseif ($mime != "text") {
+  } elseif (!$is_text) {
     echo T_('Unsupported binary file type.');
   } elseif (!$this->diff_view) {
     echo $this->highlighted_source;
